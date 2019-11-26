@@ -1,6 +1,5 @@
 package com.firm.firm.service;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -17,13 +16,6 @@ public interface BaseService<E,ID, Storage extends JpaRepository<E, ID>> {
   }
 
   default E update(ID id, E entity) {
-//    E updatedEntity = repository()
-//        .findById(id)
-//        .map(dbEntity -> {
-//          BeanUtils.copyProperties(entity, dbEntity);
-//          return dbEntity;
-//        })
-//        .get();
     return repository().save(entity);
   }
 
